@@ -8,3 +8,8 @@ test('renders learn react link', () => {
   expect(linkElement).toBeInTheDocument();
 });
 
+test('renders p', () => {
+  render(<App />);
+  const pEmelemt = screen.getByText(/Edit and save to reload./i);
+  expect(pEmelemt).toBeInTheDocument();
+});
