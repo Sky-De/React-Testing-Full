@@ -35,11 +35,30 @@ describe('Application', () => {
 
     const termsElement2 = screen.getByLabelText('I agree to the terms and conditions');
     expect(termsElement2).toBeInTheDocument();
-    
 
+    // getByPlaceholderText
+    const termsElement3 = screen.getByPlaceholderText('Fullname');
+    expect(termsElement3).toBeInTheDocument();
 
-    
+    // getByText
+    const termsElement4 = screen.getByText('All fields are mandatory',{selector:"p" });
+    expect(termsElement4).toBeInTheDocument();
 
-    
+    // getByDisplayValue
+    const nameElement5 = screen.getByDisplayValue('skyDe');
+    expect(nameElement5).toBeInTheDocument();
+
+    // getByAltText
+    const imageElement6 = screen.getByAltText('a person with a laptop');
+    expect(imageElement6).toBeInTheDocument();
+
+    // getByTitle
+    const clodeElement7 = screen.getByTitle('close');
+    expect(clodeElement7).toHaveTextContent('X');
+
+    // getByTestId
+    const customElement8 = screen.getByTestId('custom-elem');
+    expect(customElement8).toBeInTheDocument();
+
   })
 })
