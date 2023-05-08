@@ -41,7 +41,10 @@ describe('Application', () => {
     expect(termsElement3).toBeInTheDocument();
 
     // getByText
-    const termsElement4 = screen.getByText('All fields are mandatory',{selector:"p" });
+    // const termsElement4 = screen.getByText('All fields are mandatory',{selector:"p" });
+    const termsElement4 = screen.getByText(/all fiel/i,{selector:"p" });
+    // const termsElement4 = screen.getByText((content) => content.endsWith("tory"),{selector:"p" });
+
     expect(termsElement4).toBeInTheDocument();
 
     // getByDisplayValue
