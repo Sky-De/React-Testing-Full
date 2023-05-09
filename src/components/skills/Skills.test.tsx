@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { logRoles, render, screen } from '@testing-library/react'
 import { Skills } from './Skills'
 
 describe('Skills', () => {
@@ -32,8 +32,15 @@ describe('Skills', () => {
   // find... creates promist to resolve after 1000ms by default -- needs async / await
   test('Start learnig button is eventually displayed', async () => {
     render(<Skills skills={skills} />);
+
+    // it should be view with exact spell otherwise will throw an error
+    // const view =  render(<Skills skills={skills} />);
+    // logRoles(view.container)
+    
+    // screen.debug()
     const startButton = await screen.findByRole('button', { name: "Start learning" }, { timeout: 2000 });
     expect(startButton).toBeInTheDocument();
+    // screen.debug()
   })
   
 })

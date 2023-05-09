@@ -32,9 +32,10 @@ describe('Application', () => {
     // if we had two element with same LabelText(dropDown and inut for example) we can use selector to get intened element
     const nameElement2 = screen.getByLabelText('Name',{selector:"input"});
     expect(nameElement2).toBeInTheDocument();
-
+    
     const termsElement2 = screen.getByLabelText('I agree to the terms and conditions');
     expect(termsElement2).toBeInTheDocument();
+
 
     // getByPlaceholderText
     const termsElement3 = screen.getByPlaceholderText('Fullname');
