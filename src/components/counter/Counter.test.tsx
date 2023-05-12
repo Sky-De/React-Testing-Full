@@ -28,7 +28,7 @@ describe('Counter', () => {
   // Pointer Interacrions----
 
   // Convenience APIs
-  // click--dblClick--tripleClick--hover--unhover
+  // click()--dblClick()--tripleClick()--hover()--unhover()
   
   // lowLevel APIs
   // Pointer APIs(MOUSE)
@@ -83,6 +83,56 @@ describe('Counter', () => {
     await user.click(decrementButton);
     const countElement = screen.getByRole("heading");
     expect(countElement).toHaveTextContent("1");
+  })
+
+
+  // keyboard Interactions
+  // Convenience APIs
+  // tab()
+  
+  // Utility APIs
+  // type(elm,"text")--
+  // clear(elm)--
+  // selectOptions(elm,["selectId",...])--
+  // deselectOptions(elm,["selectId",...])--
+  // -- expect(elm).selected.toBe(true)
+
+  // upload(elm, fileToUpload)
+  // -- expect(elm.files[0]).toBe(file)
+  // --expect(elm.files.item(0)).toBe(file)
+  // --expect(elm.files).toHaveLength(1)
+
+  // Clipboard APIs
+  // copy()
+  // cut()
+  // paste()
+
+  // lowLevel APIs
+  // keyboard('too')// translates to : t,o,o
+  // keyboard('{Shift>}A{/Shift}')// translates to : Shift(down) , A, Shift(up)
+
+
+
+
+  test("renders acount of 10 after clicking the set button", async () => {
+    user.setup();
+    render(<Counter/>);
+    const amountInput = screen.getByRole("spinbutton");
+    await user.type(amountInput, "10");
+    expect(amountInput).toHaveValue(10);
+
+    const setButton = screen.getByRole('button', { name: 'Set' });
+    await user.click(setButton);
+    const countElement = screen.getByRole("heading");
+    expect(countElement).toHaveTextContent("10");
+  })
+
+  test("input is focused of click on it", async () => {
+    user.setup();
+    render(<Counter/>);
+    const amountInput = screen.getByRole("spinbutton");
+    await user.click(amountInput);
+    expect(amountInput).toHaveFocus();
   })
 
 })
