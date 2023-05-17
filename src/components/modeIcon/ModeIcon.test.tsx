@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
+import { customRender } from '../../test-utils';
 import ModeIcon from './ModeIcon';
-import { AppProviders } from '../../context/AppProviders';
 import user from '@testing-library/user-event';
 
 
@@ -14,7 +14,7 @@ describe('ModeToggleComponet', ()=> {
 
   test('toggles Icon correctly', async () => {
     user.setup();
-    render(<ModeIcon />, { wrapper : AppProviders });
+    customRender(<ModeIcon />);
     const iconElement = screen.getByRole("img");
     const divBtn = screen.getByRole("button");
     await user.click(divBtn);
