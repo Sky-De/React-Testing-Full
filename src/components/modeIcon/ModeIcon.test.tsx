@@ -13,7 +13,7 @@ describe('ModeToggleComponet', ()=> {
     expect(iconElement).toHaveClass("bx-moon");
   });
 
-  // wrap only one test with providers
+  // wraps only one test with providers
   test('toggles Icon correctly', async () => {
     user.setup();
     render(<ModeIcon />, { wrapper: AppProviders});
@@ -23,7 +23,7 @@ describe('ModeToggleComponet', ()=> {
     expect(iconElement).toHaveClass("bx-sun");
   });
   
-  // wrap all tests with providers using custom render function
+  // wraps all tests with providers using custom render function
   test('toggles Icon correctly again', async () => {
     user.setup();
     customRender(<ModeIcon />);

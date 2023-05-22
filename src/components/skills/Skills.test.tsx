@@ -22,18 +22,18 @@ describe('Skills', () => {
     expect(loginButton).toBeInTheDocument();
   })
   
-  // query... if finds element will return that otherwise it will be return null
+  // query... if finds element will return that otherwise it will return null
   test('Start learnig button is not rendered', () => {
     render(<Skills skills={skills} />);
     const startButton = screen.queryByRole('button',{ name: "Start learning"});
     expect(startButton).not.toBeInTheDocument();
   })
   
-  // find... creates promist to resolve after 1000ms by default -- needs async / await
+  // find... creates promise to resolve after 1000ms by default -- needs async / await
   test('Start learnig button is eventually displayed', async () => {
     render(<Skills skills={skills} />);
 
-    // it should be view with exact spell otherwise will throw an error
+    // it should be view with exact spell otherwise throws an error
     // const view =  render(<Skills skills={skills} />);
     // logRoles(view.container)
     
