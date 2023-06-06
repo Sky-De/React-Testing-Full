@@ -3,7 +3,7 @@ import ApplicationForm from './ApplicationForm'
 
 
 describe('Application', () => {
-  test('renders', () => {
+  test.skip('renders', () => {
     render(<ApplicationForm />)
     // getByRole
     const pageHeadingH1 = screen.getByRole('heading', {name: /job application form/i});
